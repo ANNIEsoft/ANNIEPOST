@@ -1,4 +1,5 @@
-ToolDAQFrameworkPath=/home/annie/ANNIEDAQ/ToolDAQ/ToolDAQFramework
+#ToolDAQFrameworkPath=/home/annie/ANNIEDAQ/ToolDAQ/ToolDAQFramework
+ToolDAQFrameworkPath=ToolDAQ/ToolDAQFramework
 
 ZMQLib= -L $(ToolDAQFrameworkPath)/../zeromq-4.0.7/lib -lzmq 
 ZMQInclude= -I $(ToolDAQFrameworkPath)/../zeromq-4.0.7/include/ 
