@@ -1,4 +1,4 @@
-ToolDAQFrameworkPath=~/ToolDAQFramework/ToolDAQ/ToolDAQFramework
+ToolDAQFrameworkPath=/home/annie/ANNIEDAQ/ToolDAQ/ToolDAQFramework
 
 ZMQLib= -L $(ToolDAQFrameworkPath)/../zeromq-4.0.7/lib -lzmq 
 ZMQInclude= -I $(ToolDAQFrameworkPath)/../zeromq-4.0.7/include/ 
@@ -50,7 +50,9 @@ lib/libDataModel.so: lib/libStore.so lib/libLogging.so
 	cp DataModel/DataModel.h include/
 	cp DataModel/PMTData.h include/
 	cp DataModel/RunInformation.h include/
-	g++ -g -fPIC -shared DataModel/DataModel.cpp DataModel/PMTData.C DataModel/RunInformation.C -I include -L lib -lStore  -lLogging  -o lib/libDataModel.so $(DataModelInclude) $(DataModelLib) $(ZMQLib) $(ZMQInclude)  $(BoostLib) $(BoostInclude)
+	cp DataModel/MRDTree.h include/
+	cp DataModel/SplitTree.h include/
+	g++ -g -fPIC -shared DataModel/DataModel.cpp DataModel/PMTData.C DataModel/RunInformation.C DataModel/MRDTree.C DataModel/SplitTree.C -I include -L lib -lStore  -lLogging  -o lib/libDataModel.so $(DataModelInclude) $(DataModelLib) $(ZMQLib) $(ZMQInclude)  $(BoostLib) $(BoostInclude)
 
 lib/libMyTools.so: lib/libStore.so include/Tool.h lib/libDataModel.so lib/libLogging.so
 

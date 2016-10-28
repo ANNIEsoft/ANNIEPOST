@@ -1,4 +1,4 @@
-//////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
 // This class has been automatically generated on
 // Thu Sep 15 10:08:12 2016 by ROOT version 5.34/34
 // from TTree PMTData/PMTData
@@ -12,23 +12,70 @@
 #include <TChain.h>
 #include <TFile.h>
 
+#include <string>
+
 // Header file for the classes stored in the TTree if any.
 
 // Fixed size dimensions of array or collections stored in the TTree if any.
-
+/*
 class SplitTree{
 
- Public:
+ public:
+  
+  SplitTree(std::string name){
 
-  SplitTree();
+    tree=new TTree(name.c_str(),name.c_str());
+    TBranch* br;
+    br=tree->Branch("LastSync",&LastSync,"LastSync/l");                                                      
+    br->SetCompressionLevel(4);   
+    br=tree->Branch("SequenceID", &SequenceID, "SequenceID/I");                                                  
+    br->SetCompressionLevel(4);  
+    br=tree->Branch("StartTimeSec", &StartTimeSec, "StartTimeSec/I");                                            
+    br->SetCompressionLevel(4);   
+    br=tree->Branch("StartTimeNSec", &StartTimeNSec, "StartTimeNSec/I");
+    br->SetCompressionLevel(4);  
+    br=tree->Branch("StartCount", &StartCount, "StartCount/l");                                                  
+    br->SetCompressionLevel(4);   
+    br=tree->Branch("TriggerNumber", &TriggerNumber, "TriggerNumber/I");                                         
+    br->SetCompressionLevel(4);
+    br=tree->Branch("TriggerCount", &TriggerCount, "TriggerCount/l");                                          
+    br->SetCompressionLevel(4);
+    br=tree->Branch("CardID", &CardID, "CardID/I");                                                              
+    br->SetCompressionLevel(4);
+    br=tree->Branch("Channel", &Channel, "Channel/I");                                                        
+    br->SetCompressionLevel(4);
+    br=tree->Branch("Rate", &Rate, "Rate/i");                                                                  
+    br->SetCompressionLevel(4);
+    br=tree->Branch("BufferSize", &BufferSize, "BufferSize/I");                                                  
+    br->SetCompressionLevel(4);
+    br=tree->Branch("Trigger", &Trigger, "Trigger/I");
+    br->SetCompressionLevel(4);
+    //    br=tree->Branch("PMTf", &PMTf, "PMTf/I");
+    //br->SetCompressionLevel(4);
+    //br=tree->Branch("PMTx", &PMTx, "PMTx/I");
+    //br->SetCompressionLevel(4);
+    //br=tree->Branch("PMTy", &PMTy, "PMTy/I");
+    //br->SetCompressionLevel(4);
+    //br=tree->Branch("PMTz", &PMTz, "PMTz/I");
+    //br->SetCompressionLevel(4);
+    //    br=tree->Branch("Data", Data, "Data[BufferSize]/F");          
+    //br->SetCompressionLevel(4);
+    br=tree->Branch("UnCalData", UnCalData, "UnCalData[BufferSize]/s");
+    br->SetCompressionLevel(4);
+  }
+  
+
+  void Fill(){tree->Fill();}  
+  void GetEntry(long entry){tree->GetEntry(entry);}
+  TTree *tree;
 
   ULong64_t LastSync;
   Int_t SequenceID;
   Int_t StartTimeSec;
-  Int_t StartTimeNSecc;
-  ULong64_t StartCout;
+  Int_t StartTimeNSec;
+  ULong64_t StartCount;
   Int_t TriggerNumber;
-  Ulong64_t TriggerCount; //[TriggerNumber]
+  ULong64_t TriggerCount; //[TriggerNumber]
   UInt_t Rate; // [TriggerNumber]
   Int_t CardID;
   Int_t Channel;
@@ -39,10 +86,11 @@ class SplitTree{
   Int_t PMTx;
   Int_t PMTy;
   Int_t PMTz;
-  Float_t Data[10000];
-
+  Float_t Data[160000];
+  UShort_t UnCalData[160000];
 };
 
+*/
 
 class PMTData {
 public :

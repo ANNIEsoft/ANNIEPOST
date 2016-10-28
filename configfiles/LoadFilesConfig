@@ -1,0 +1,4 @@
+#LoadFiles config file
+
+verbose 1
+FileList ./files

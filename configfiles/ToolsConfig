@@ -1,3 +1,9 @@
 #test1 DummyTool configfiles/DummyToolConfig
 #test2 DummyTool configfiles/DummyToolConfig
-LoadFiles LoadFiles NULL
+LoadFiles LoadFiles configfiles/LoadFilesConfig
+Splitter Splitter NULL
+RunInformationCollector RunInformationCollector NULL
+SplitLoop SplitLoop NULL
+Calibrate Calibrate NULL
+PMTLocation PMTLocation NULL
+RootOutput RootOutput NULL

@@ -7,7 +7,13 @@ Tool* ret=0;
 if (tool=="DummyTool") ret=new DummyTool;
 
 if (tool=="LoadFiles") ret=new LoadFiles;
-  if (tool=="Spliter") ret=new Spliter;
+if (tool=="Splitter") ret=new Splitter;
+if (tool=="SplitLoop") ret=new SplitLoop;
+if (tool=="Calibrate") ret=new Calibrate;
+if (tool=="PMTLocation") ret=new PMTLocation;
+if (tool=="RootOutput") ret=new RootOutput;
+
+  if (tool=="RunInformationCollector") ret=new RunInformationCollector;
 return ret;
 }
 

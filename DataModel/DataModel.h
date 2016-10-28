@@ -4,10 +4,13 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <stdint.h>
 
 #include "TTree.h"
-#include <PMTData.h>
-#include <RunInformation.h>
+#include "PMTData.h"
+#include "SplitTree.h"
+#include "RunInformation.h"
+#include "MRDTree.h"
 
 #include "Store.h"
 #include "Logging.h"
@@ -29,10 +32,14 @@ class DataModel {
 
   zmq::context_t* context;
 
+  std::string FileName;
+
   TChain* PMTDataChain;
   TChain* RunInformationChain;
+  TChain* MRDChain;
   PMTData* WaterPMTData;
-  SlitTree* splittee;
+  SplitTree* splittree;
+  MRDTree* MRDData;
   RunInformation* RunInformationData;
 
  private:

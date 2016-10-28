@@ -1,8 +1,8 @@
 #ToolChain dynamic setup file
 
 ##### Runtime Paramiters #####
-verbose 9
-error_level 0 # 0= do not exit, 1= exit on unhandeled errors only, 2= exit on unhandeled errors and handeled errors
+verbose 1
+error_level 2 # 0= do not exit, 1= exit on unhandeled errors only, 2= exit on unhandeled errors and handeled errors
 attempt_recover 1
 remote_port 24004
 
@@ -23,7 +23,7 @@ service_kick_sec 60
 Tools_File configfiles/ToolsConfig
 
 ##### Run Type #####
-Inline 1
+Inline 10000000
 Interactive 0
 Remote 0
 
