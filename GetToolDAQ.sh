@@ -36,6 +36,16 @@ make
 
 export LD_LIBRARY_PATH=`pwd`/lib:$LD_LIBRARY_PATH
 
+cd ..
+
+wget http://pqxx.org/download/software/libpqxx/libpqxx-4.0.1.tar.gz
+tar zxvf libpqxx-4.0.1.tar.gz
+cd libpqxx-4.0.1
+mkdir install
+./configure --enable-shared --prefix=`pwd`/install
+make
+make install
+
 cd ../../
 
 make clean
