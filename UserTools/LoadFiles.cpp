@@ -21,16 +21,30 @@ bool LoadFiles::Initialise(std::string configfile, DataModel &data){
   std::string line;
   ifstream myfile (filelist.c_str());
   
-  if (myfile.is_open()){
-    while ( getline (myfile,line) )
-      {
+    if (myfile.is_open()){
+    
+    m_data->outfile="";
 
-	std::cout<<"Loading file "<<line<<std::endl;	
-	m_data->PMTDataChain->Add(line.c_str());
-	m_data->RunInformationChain->Add(line.c_str());
-	m_data->MRDChain->Add(line.c_str());
-
+    while ( getline (myfile,line) ){
+    
+      if(m_data->outfile==""){
+	char * pch;
+	char *elements=new char[line.length()];
+	strcpy(elements, line.c_str());
+	pch = strtok (elements,"/");
+	while (pch != NULL)
+	  {
+	    m_data->outfile=pch;
+	    pch = strtok(NULL,"/");
+	  }
       }
+
+      std::cout<<"Loading file "<<line<<std::endl;	
+      m_data->PMTDataChain->Add(line.c_str());
+      m_data->RunInformationChain->Add(line.c_str());
+      m_data->MRDChain->Add(line.c_str());
+      
+    }
     myfile.close();
   }
   

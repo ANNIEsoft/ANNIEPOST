@@ -6,4 +6,4 @@ RunInformationCollector RunInformationCollector NULL
 SplitLoop SplitLoop NULL
 Calibrate Calibrate NULL
 PMTLocation PMTLocation NULL
-RootOutput RootOutput NULL
+RootOutput RootOutput configfiles/RootOutputConfig

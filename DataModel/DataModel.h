@@ -32,7 +32,7 @@ class DataModel {
 
   zmq::context_t* context;
 
-  std::string FileName;
+  std::string outfile;
 
   TChain* PMTDataChain;
   TChain* RunInformationChain;
