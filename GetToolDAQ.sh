@@ -1,4 +1,4 @@
-#!/bin/bash
+B#!/bin/bash
 
 # rpms prerequisits needs root
 #yum install make gcc-c++ gcc binutils libX11-devel libXpm-devel libXft-devel libXext-devel git 
@@ -35,6 +35,17 @@ make clean
 make
 
 export LD_LIBRARY_PATH=`pwd`/lib:$LD_LIBRARY_PATH
+
+cd ..
+cd ../
+
+wget https://root.cern.ch/download/root_v5.34.34.source.tar.gz
+tar zxvf root_v5.34.34.source.tar.gz
+cd root
+
+./configure --prefix=`pwd` --enable-rpath
+make
+make install
 
 cd ..
 
