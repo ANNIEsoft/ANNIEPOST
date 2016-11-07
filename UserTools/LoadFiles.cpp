@@ -53,6 +53,7 @@ bool LoadFiles::Initialise(std::string configfile, DataModel &data){
   m_data->RunInformationData=new RunInformation(m_data->RunInformationChain);
   m_data->MRDData=new MRDTree(m_data->MRDChain);  
   m_data->MRDData->fChain->SetName("MRDData");
+  m_data->AddTTree("MRDData",m_data->MRDData->fChain);
  
   return true;
 }

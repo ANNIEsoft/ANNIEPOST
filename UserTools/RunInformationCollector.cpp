@@ -30,6 +30,7 @@ bool RunInformationCollector::Execute(){
         
     delete m_data->RunInformationData;
     m_data->RunInformationData=new RunInformation();
+    m_data->AddTTree("RunInformation",m_data->RunInformation->fChain);
     
     for (std::map<std::string,std::string>::iterator it=runinfo.begin(); it!=runinfo.end(); ++it){
       //      std::cout<<"assigning string "<<m_data->RunInformationData->InfoTitle<<std::endl;

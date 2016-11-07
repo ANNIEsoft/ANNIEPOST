@@ -104,7 +104,7 @@ public :
    Int_t           StartTimeNSec;
    ULong64_t       StartCount;
    Int_t           TriggerNumber;
-   ULong64_t       TriggerCounts[63];   //[TriggerNumber]
+   ULong64_t       TriggerCounts[1000];   //[TriggerNumber]
    Int_t           CardID;
    Int_t           Channels;
    UInt_t          Rates[4];   //[Channels]

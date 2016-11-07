@@ -11,6 +11,7 @@ bool Splitter::Initialise(std::string configfile, DataModel &data){
   m_data= &data;
 
   m_data->splittree=new SplitTree("PMTData");
+  m_data->AddTTree("PMTData",m_data->splittree->fChain);
 
   TriggerNum=0;
 

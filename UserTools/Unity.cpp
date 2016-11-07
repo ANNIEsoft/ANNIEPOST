@@ -6,3 +6,4 @@
 #include "RootOutput.cpp"
 #include "PMTLocation.cpp"
 #include "RunInformationCollector.cpp"
+#include "PulseFinder.cpp"

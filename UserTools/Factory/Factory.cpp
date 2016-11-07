@@ -13,7 +13,8 @@ if (tool=="Calibrate") ret=new Calibrate;
 if (tool=="PMTLocation") ret=new PMTLocation;
 if (tool=="RootOutput") ret=new RootOutput;
 
-  if (tool=="RunInformationCollector") ret=new RunInformationCollector;
+if (tool=="RunInformationCollector") ret=new RunInformationCollector;
+  if (tool=="PulseFinder") ret=new PulseFinder;
 return ret;
 }
 

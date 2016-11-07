@@ -35,9 +35,16 @@ bool RootOutput::Finalise(){
   
   file->cd();  
   //  std::cout<<"writing"<<std::endl;
-  m_data->splittree->fChain->Write();
-  m_data->RunInformationData->fChain->Write();
-  m_data->MRDData->fChain->Write();
+
+  for (std::map<std::string,TTree*>::iterator it=m_data->m_trees.begin(); it!=m_data->m_trees.end(); ++it){
+    
+    it->second->Write();
+    
+  }
+  
+  //m_data->splittree->fChain->Write();
+  //m_data->RunInformationData->fChain->Write();
+  //m_data->MRDData->fChain->Write();
   //m_data->splittree->tree->Print();
   //std::cout<<"written"<<std::endl;
 

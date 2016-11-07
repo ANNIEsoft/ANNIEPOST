@@ -11,6 +11,7 @@
 #include "SplitTree.h"
 #include "RunInformation.h"
 #include "MRDTree.h"
+#include "PulseTree.h" //to be included
 
 #include "Store.h"
 #include "Logging.h"
@@ -41,14 +42,11 @@ class DataModel {
   SplitTree* splittree;
   MRDTree* MRDData;
   RunInformation* RunInformationData;
-
- private:
-
-
+  PulseTree* PulseData;
   
   std::map<std::string,TTree*> m_trees; 
   
-  
+ private:
   
 };
 
