@@ -37,15 +37,15 @@ bool PulseFinder::Execute(){
 
   //If that is the case you will not be able to perform 
 
-  if(m_data->splittree->Trigger>m_data->PulseTree->TrigNo){ //conditional to find if we have started
+  if(m_data->splittree->Trigger>m_data->PulseData->TrigNo){ //conditional to find if we have started
     
-    if(m_data->PulseTree->fPmts_>0) m_data->GetTree("PulseTree")->Fill();
+    if(m_data->PulseData->fPmts_>0) m_data->GetTTree("PulseTree")->Fill();
   
     //fill your non channel specific data here
     //e.g.
 
     m_data->PulseData->TrigNo = m_data->splittree->Trigger;
-    m_data->PulseData->BufferSize = m_data->splittree->Buffersize;
+    m_data->PulseData->BufferSize = m_data->splittree->Bufferize;
     //... etc.
     
   }
@@ -65,7 +65,7 @@ bool PulseFinder::Execute(){
       int windowmin=point-(pulsewindow/2);
 
       if(windowmin<0) windowmin=0;
-      if(windowmax > m_data->splittree->BufferSize); windowmax=_data->splittree->BufferSize;
+      if(windowmax > m_data->splittree->BufferSize); windowmax=m_data->splittree->BufferSize;
 
       for (int value=windowmin;value<=windowmax;value++){
 
@@ -91,10 +91,10 @@ bool PulseFinder::Finalise(){
 
   // Example of sorting a finnished ttree (this will not work in execute as the tree is not filled completly until all execute loop is finnished
 
-  m_data->GeTTree("PMTData")->BuildIndex("Trigger");
-  TTreeIndex *index = (TTreeIndex*)m_data->GeTTree("PMTData")->GetTreeIndex();
+  m_data->GetTTree("PMTData")->BuildIndex("Trigger");
+  TTreeIndex *index = (TTreeIndex*)m_data->GetTTree("PMTData")->GetTTreeIndex();
   for( int i = 0; i<index->GetN() ;i++) {
-    Long64_t local = m_data->GeTTree("PMTData")->LoadTree( index->GetIndex()[i] );
+    Long64_t local = m_data->GetTTree("PMTData")->LoadTree( index->GetIndex()[i] );
     m_data->splittree->GetEntry(local);
     
 
