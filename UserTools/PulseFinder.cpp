@@ -45,7 +45,7 @@ bool PulseFinder::Execute(){
     //e.g.
 
     m_data->PulseData->TrigNo = m_data->splittree->Trigger;
-    m_data->PulseData->BufferSize = m_data->splittree->Bufferize;
+    m_data->PulseData->BufferSize = m_data->splittree->BufferSize;
     //... etc.
     
   }
@@ -92,7 +92,7 @@ bool PulseFinder::Finalise(){
   // Example of sorting a finnished ttree (this will not work in execute as the tree is not filled completly until all execute loop is finnished
 
   m_data->GetTTree("PMTData")->BuildIndex("Trigger");
-  TTreeIndex *index = (TTreeIndex*)m_data->GetTTree("PMTData")->GetTTreeIndex();
+  TTreeIndex *index = (TTreeIndex*)m_data->GetTTree("PMTData")->GetTreeIndex();
   for( int i = 0; i<index->GetN() ;i++) {
     Long64_t local = m_data->GetTTree("PMTData")->LoadTree( index->GetIndex()[i] );
     m_data->splittree->GetEntry(local);
