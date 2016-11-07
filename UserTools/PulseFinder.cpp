@@ -10,7 +10,7 @@ bool PulseFinder::Initialise(std::string configfile, DataModel &data){
 
   m_data= &data;
   
-  m_vatiable.Get("Threshold",threashold); //assining threshold dynamically from file
+  m_variables.Get("Threshold",threshold); //assining threshold dynamically from file
   m_variables.Get("PulseWindow",pulsewindow); //assining pulse capture window dynamically from file
   
   m_data->PulseData=new PulseTree("annie"); // creating your output tree in data model (we could ahve made a local copy but i think youwant to acess it in another tool) [this is just a make class done on the output tree with a new constructor that you will ahve to fill out how ever you normally make your ttree]
@@ -35,7 +35,7 @@ bool PulseFinder::Execute(){
 
   //In the finalise method i ahve put an example of how to sort a ttree into trigger order
 
-If that is the case you will not be able to perform 
+  //If that is the case you will not be able to perform 
 
   if(m_data->splittree->Trigger>m_data->PulseTree->TrigNo){ //conditional to find if we have started
     
@@ -58,14 +58,14 @@ If that is the case you will not be able to perform
       //e.g.
    
       m_data->PulseData->fPmts_++;
-      m_data->PulseData->fPmts_x = m_data->splittree->PMTx;
+      m_data->PulseData->fPmts_x[m_data->PulseData->fPmts_ -1] = m_data->splittree->PMTx;
       //... etc.
       
-      int windowmax=point+(pulsewindown/2);
-      int windowmin=point-(pulsewindo2/2);
+      int windowmax=point+(pulsewindow/2);
+      int windowmin=point-(pulsewindow/2);
 
       if(windowmin<0) windowmin=0;
-      if(windowmax>m_data->splittree->BufferSize); windowmax=_data->splittree->BufferSize;
+      if(windowmax > m_data->splittree->BufferSize); windowmax=_data->splittree->BufferSize;
 
       for (int value=windowmin;value<=windowmax;value++){
 
@@ -91,10 +91,10 @@ bool PulseFinder::Finalise(){
 
   // Example of sorting a finnished ttree (this will not work in execute as the tree is not filled completly until all execute loop is finnished
 
-  m_data->m_trees.GeTTree("PMTData")->BuildIndex("Trigger");
-  TTreeIndex *index = (TTreeIndex*)m_data->m_trees.GeTTree("PMTData")->GetTreeIndex();
+  m_data->GeTTree("PMTData")->BuildIndex("Trigger");
+  TTreeIndex *index = (TTreeIndex*)m_data->GeTTree("PMTData")->GetTreeIndex();
   for( int i = 0; i<index->GetN() ;i++) {
-    Long64_t local = m_data->m_trees.GeTTree("PMTData")->LoadTree( index->GetIndex()[i] );
+    Long64_t local = m_data->GeTTree("PMTData")->LoadTree( index->GetIndex()[i] );
     m_data->splittree->GetEntry(local);
     
 

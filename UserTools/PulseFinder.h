@@ -21,7 +21,7 @@ class PulseFinder: public Tool {
 
  private:
 
-  float threashold;
+  float threshold;
   int pulsewindow;
 
 
