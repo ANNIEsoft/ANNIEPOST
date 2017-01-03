@@ -51,10 +51,14 @@ bool LoadFiles::Initialise(std::string configfile, DataModel &data){
   
   m_data->WaterPMTData=new PMTData(m_data->PMTDataChain);
   m_data->RunInformationData=new RunInformation(m_data->RunInformationChain);
-  m_data->MRDData=new MRDTree(m_data->MRDChain);  
+  //  m_data->MRDChain->CloneTree(-1,"fast");
+  TTree* test=m_data->MRDChain->CloneTree();
+  //   std::cout<<"ttre test ="<<test<<std::endl;
+  if(test){m_data->MRDData=new MRDTree(m_data->MRDChain->CloneTree());  
   m_data->MRDData->fChain->SetName("MRDData");
   m_data->AddTTree("MRDData",m_data->MRDData->fChain);
- 
+  }
+
   return true;
 }
 

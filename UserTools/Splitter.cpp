@@ -80,9 +80,9 @@ bool Splitter::Initialise(std::string configfile, DataModel &data){
 	int dataentry=0;
 	
 	//	  for(int j=(channel*(bufferlength/4))+(sample*(bufferlength/(8*nsamples))); j<(channel*(bufferlength/4))+(bufferlength/8)+(sample*(bufferlength/(8*nsamples)));j++){
-	
-	for(int j=(channel*(bufferlength))+(sample*(bufferlength/(2*nsamples))); j<(channel*(bufferlength))+(bufferlength/(2*nsamples))+(sample*(bufferlength/(2*nsamples)));j++){
-	  
+	//	std::cout<<"channel="<<channel<<" , sample="<<sample<<" , buffrlength="<<bufferlength<<" , nsamples="<<nsamples<<std::endl;
+	for(int j=(channel*(bufferlength))+(sample*(bufferlength/(2*nsamples))); j<(channel*(bufferlength))+(bufferlength/(2*nsamples))+(sample*(bufferlength/(2*nsamples)));j+=2){
+	  //	  std::cout<<dataentry<<"->"<<j<<" , "<<(dataentry+1)<<"->"<<(j+1)<<" , "<<(dataentry+2)<<"->"<<(j+(bufferlength/2))<<" , "<<(dataentry+3)<<"->"<<j+1+(bufferlength/2)<<std::endl;	  
 	  m_data->splittree->UnCalData[dataentry]=m_data->WaterPMTData->Data[j];
 	  m_data->splittree->UnCalData[dataentry+1]=m_data->WaterPMTData->Data[j+1];
 	  m_data->splittree->UnCalData[dataentry+2]=m_data->WaterPMTData->Data[j+(bufferlength/2)];
