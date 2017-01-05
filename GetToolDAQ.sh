@@ -1,4 +1,4 @@
-B#!/bin/bash
+#!/bin/bash
 
 # rpms prerequisits needs root
 #yum install make gcc-c++ gcc binutils libX11-devel libXpm-devel libXft-devel libXext-devel git 
