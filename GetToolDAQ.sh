@@ -42,9 +42,10 @@ wget https://root.cern.ch/download/root_v5.34.34.source.tar.gz
 tar zxvf root_v5.34.34.source.tar.gz
 cd root
 
-./configure --prefix=`pwd` --enable-rpath
+#./configure --prefix=`pwd` --enable-rpath
+./configure
 make
-make install
+#make install
 
 cd ..
 
@@ -61,3 +62,4 @@ cd ../../
 make clean
 make
 
+ln -s configfiles/OfflineToolChainConfig offline
