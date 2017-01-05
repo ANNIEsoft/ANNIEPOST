@@ -7,3 +7,4 @@
 #include "PMTLocation.cpp"
 #include "RunInformationCollector.cpp"
 #include "PulseFinder.cpp"
+#include "OfflinePMTLocation.cpp"

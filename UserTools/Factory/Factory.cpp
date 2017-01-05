@@ -15,6 +15,8 @@ if (tool=="RootOutput") ret=new RootOutput;
 
 if (tool=="RunInformationCollector") ret=new RunInformationCollector;
   if (tool=="PulseFinder") ret=new PulseFinder;
+  if (tool=="OfflinePMTLocation") ret= new OfflinePMTLocation;
+
 return ret;
 }
 

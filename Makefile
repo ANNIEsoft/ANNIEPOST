@@ -15,10 +15,10 @@ DataModelLib = $(RootLib)
 
 MyToolsInclude = $(RootInclude) -I $(ToolDAQFrameworkPath)/../libpqxx-4.0.1/install/include
 MyToolsLib = $(RootLib)  -L $(ToolDAQFrameworkPath)/../libpqxx-4.0.1/install/lib/ -lpqxx  -L /usr/lib64/
- 
+
 
 all: lib/libMyTools.so lib/libToolChain.so lib/libStore.so include/Tool.h  lib/libServiceDiscovery.so lib/libDataModel.so lib/libLogging.so RemoteControl  NodeDaemon
- 
+
 	g++ -g src/main.cpp -o main -I include -L lib -lStore -lMyTools -lToolChain -lDataModel -lLogging -lServiceDiscovery -lpthread $(DataModelInclude) $(MyToolsInclude)  $(MyToolsLib) $(ZMQLib) $(ZMQInclude)  $(BoostLib) $(BoostInclude)
 
 
