@@ -16,7 +16,7 @@ bool RootOutput::Initialise(std::string configfile, DataModel &data){
   m_variables.Get("Suffix",suffix);
 
   std::stringstream tmp;
-  tmp<<outpath<<"/"<<m_data->outfile<<suffix;
+  tmp<<outpath<<m_data->outfile<<suffix;
   file= new TFile(tmp.str().c_str(),"RECREATE","test",9);
  
 
