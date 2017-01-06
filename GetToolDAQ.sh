@@ -10,7 +10,7 @@ cd ToolDAQ
 git clone https://github.com/ToolDAQ/ToolDAQFramework.git
 git clone https://github.com/ToolDAQ/zeromq-4.0.7.git
 wget http://downloads.sourceforge.net/project/boost/boost/1.60.0/boost_1_60_0.tar.gz
-tar zxvf boost_1_60_0.tar.gz
+tar zxf boost_1_60_0.tar.gz
 
 cd zeromq-4.0.7
 
