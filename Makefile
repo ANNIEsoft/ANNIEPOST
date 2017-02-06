@@ -54,7 +54,8 @@ lib/libDataModel.so: lib/libStore.so lib/libLogging.so
 	cp DataModel/MRDTree.h include/
 	cp DataModel/SplitTree.h include/
 	cp DataModel/PulseTree.h include/
-	g++ -g -fPIC -shared DataModel/DataModel.cpp DataModel/PMTData.C DataModel/RunInformation.C DataModel/MRDTree.C DataModel/SplitTree.C DataModel/PulseTree.C -I include -L lib -lStore  -lLogging  -o lib/libDataModel.so $(DataModelInclude) $(DataModelLib) $(ZMQLib) $(ZMQInclude)  $(BoostLib) $(BoostInclude)
+	cp DataModel/TrigData.h include/
+	g++ -g -fPIC -shared DataModel/DataModel.cpp DataModel/PMTData.C DataModel/RunInformation.C DataModel/MRDTree.C DataModel/SplitTree.C DataModel/PulseTree.C DataModel/TrigData.C -I include -L lib -lStore  -lLogging  -o lib/libDataModel.so $(DataModelInclude) $(DataModelLib) $(ZMQLib) $(ZMQInclude)  $(BoostLib) $(BoostInclude)
 
 lib/libMyTools.so: lib/libStore.so include/Tool.h lib/libDataModel.so lib/libLogging.so
 

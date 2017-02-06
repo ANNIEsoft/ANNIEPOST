@@ -12,6 +12,7 @@
 #include "RunInformation.h"
 #include "MRDTree.h"
 #include "PulseTree.h" //to be included
+#include "TrigData.h"
 
 #include "Store.h"
 #include "Logging.h"
@@ -38,11 +39,13 @@ class DataModel {
   TChain* PMTDataChain;
   TChain* RunInformationChain;
   TChain* MRDChain;
+  TChain* TrigChain;
   PMTData* WaterPMTData;
   SplitTree* splittree;
   MRDTree* MRDData;
   RunInformation* RunInformationData;
   PulseTree* PulseData;
+  TrigData* TriggerData;
   
   std::map<std::string,TTree*> m_trees; 
   

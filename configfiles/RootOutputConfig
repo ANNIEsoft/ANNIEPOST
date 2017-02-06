@@ -1,5 +1,5 @@
 #RootOutput config file
 
-OutPath ./
-#OutPath /data/output/
+#OutPath ./
+OutPath /data/output/
 Suffix .tmp

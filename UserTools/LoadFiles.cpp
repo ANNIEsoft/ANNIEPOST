@@ -17,6 +17,7 @@ bool LoadFiles::Initialise(std::string configfile, DataModel &data){
   m_data->PMTDataChain=new TChain("PMTData");
   m_data->RunInformationChain=new TChain("RunInformation");
   m_data->MRDChain= new TChain("CCData");
+  m_data->TrigChain= new TChain("TrigData");
 
   std::string line;
   ifstream myfile (filelist.c_str());
@@ -43,7 +44,8 @@ bool LoadFiles::Initialise(std::string configfile, DataModel &data){
 	m_data->PMTDataChain->Add(line.c_str());
 	m_data->RunInformationChain->Add(line.c_str());
 	m_data->MRDChain->Add(line.c_str());
-	
+	m_data->TrigChain->Add(line.c_str());
+
       }
       myfile.close();
     }
@@ -56,10 +58,18 @@ bool LoadFiles::Initialise(std::string configfile, DataModel &data){
     
     m_data->WaterPMTData=new PMTData(m_data->PMTDataChain);
     m_data->RunInformationData=new RunInformation(m_data->RunInformationChain);
+    
+    TTree* testTrig=m_data->TrigChain->CloneTree();
+    if(testTrig){m_data->TriggerData=new TrigData(m_data->TrigChain->CloneTree());
+      m_data->TriggerData->fChain->SetName("TrigData");
+      m_data->AddTTree("TrigData",m_data->TriggerData->fChain);
+    }
+    
+
     //  m_data->MRDChain->CloneTree(-1,"fast");
-    TTree* test=m_data->MRDChain->CloneTree();
+    TTree* testMRD=m_data->MRDChain->CloneTree();
     //   std::cout<<"ttre test ="<<test<<std::endl;
-    if(test){m_data->MRDData=new MRDTree(m_data->MRDChain->CloneTree());  
+    if(testMRD){m_data->MRDData=new MRDTree(m_data->MRDChain->CloneTree());  
       m_data->MRDData->fChain->SetName("MRDData");
       m_data->AddTTree("MRDData",m_data->MRDData->fChain);
     }
