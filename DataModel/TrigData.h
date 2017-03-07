@@ -28,10 +28,10 @@ public :
    Int_t           TriggerSize;
    Int_t           FIFOOverflow;
    Int_t           DriverOverfow;
-   UShort_t        EventIDs[70];   //[EventSize]
-   ULong64_t       EventTimes[70];   //[EventSize]
-   UInt_t          TriggerMasks[5120];   //[TriggerSize]
-   UInt_t          TriggerCounters[5120];   //[TriggerSize]
+   UShort_t        EventIDs[700];   //[EventSize]
+   ULong64_t       EventTimes[700];   //[EventSize]
+   UInt_t          TriggerMasks[25000];   //[TriggerSize]
+   UInt_t          TriggerCounters[25000];   //[TriggerSize]
 
    // List of branches
    TBranch        *b_FirmwareVersion;   //!
