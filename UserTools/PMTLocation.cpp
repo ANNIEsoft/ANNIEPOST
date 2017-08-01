@@ -34,18 +34,23 @@ bool PMTLocation::Initialise(std::string configfile, DataModel &data){
   br=m_data->splittree->fChain->Branch("PMTID", &m_data->splittree->PMTID, "PMTID/I");
   br->SetCompressionLevel(4); 
   BranchVec.push_back(br);
+  m_data->splittree->b_PMTID=br;
   br=m_data->splittree->fChain->Branch("PMTf", &m_data->splittree->PMTf, "PMTf/I");
   br->SetCompressionLevel(4);
   BranchVec.push_back(br);
+  m_data->splittree->b_PMTf=br;
   br=m_data->splittree->fChain->Branch("PMTx", &m_data->splittree->PMTx, "PMTx/I");
   br->SetCompressionLevel(4);
   BranchVec.push_back(br);
+  m_data->splittree->b_PMTx=br;
   br=m_data->splittree->fChain->Branch("PMTy", &m_data->splittree->PMTy, "PMTy/I");
   br->SetCompressionLevel(4);
   BranchVec.push_back(br);
+  m_data->splittree->b_PMTy=br;
   br=m_data->splittree->fChain->Branch("PMTz", &m_data->splittree->PMTz, "PMTz/I");
   br->SetCompressionLevel(4);
   BranchVec.push_back(br);
+  m_data->splittree->b_PMTz=br;
 
   return true;
 

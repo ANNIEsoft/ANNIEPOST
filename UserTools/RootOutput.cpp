@@ -10,6 +10,8 @@ bool RootOutput::Initialise(std::string configfile, DataModel &data){
 
   m_data= &data;
 
+  file=m_data->tmpfile;
+  /*
   std::string outpath, suffix;
 
   m_variables.Get("OutPath",outpath);
@@ -18,8 +20,31 @@ bool RootOutput::Initialise(std::string configfile, DataModel &data){
   std::stringstream tmp;
   tmp<<outpath<<m_data->outfile<<suffix;
   file= new TFile(tmp.str().c_str(),"RECREATE","test",9);
+  
+  
+  m_data->splittree->b_LastSync->SetFile(file);   //!
+  m_data->splittree->b_SequenceID->SetFile(file);   //!
+  m_data->splittree->b_StartTimeSec->SetFile(file);   //!
+  m_data->splittree->b_StartTimeNSec->SetFile(file);   //!
+  m_data->splittree->b_StartCount->SetFile(file);   //!
+  m_data->splittree->b_TriggerNumber->SetFile(file);   //!
+  m_data->splittree->b_TriggerCount->SetFile(file);   //!
+  m_data->splittree->b_CardID->SetFile(file);   //!
+  m_data->splittree->b_Channel->SetFile(file);   //!
+  m_data->splittree->b_Rate->SetFile(file);   //!
+  m_data->splittree->b_BufferSize->SetFile(file);   //!
+  m_data->splittree->b_Trigger->SetFile(file);   //!
+  //m_data->splittree->b_UnCalData->SetFile(file);   //!
+  m_data->splittree->b_Data->SetFile(file);   //!
+  m_data->splittree->b_PMTID->SetFile(file);   //!
+  m_data->splittree->b_PMTf->SetFile(file);   //!
+  m_data->splittree->b_PMTx->SetFile(file);   //!
+  m_data->splittree->b_PMTy->SetFile(file);   //!
+  m_data->splittree->b_PMTz->SetFile(file);   //!
+  m_data->tmpfile =new TFile("/tmp/tout.root","RECREATE");
+  m_data->splittree->b_UnCalData->SetFile(m_data->tmpfile); 
+  */
  
-
   return true;
 }
 
@@ -50,6 +75,7 @@ bool RootOutput::Finalise(){
 
   file->Close();
   //  delete file;
+  //  m_data->tmpfile->Close();
 
   return true;
 }

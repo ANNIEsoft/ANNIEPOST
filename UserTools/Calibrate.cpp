@@ -19,7 +19,7 @@ bool Calibrate::Initialise(std::string configfile, DataModel &data){
   tmp<<"Data["<<m_data->splittree->BufferSize<<"]/F";
   br=m_data->splittree->fChain->Branch("Data", m_data->splittree->Data,tmp.str().c_str());
   br->SetCompressionLevel(4);
-
+  m_data->splittree->b_Data=br;
 
   return true;
 }

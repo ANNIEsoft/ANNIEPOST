@@ -22,7 +22,7 @@ bool SplitLoop::Execute(){
   
   if(entry<m_data->splittree->fChain->GetEntries()){
     
-    if(entry%100==0) std::cout<<entry<<"/"<<m_data->splittree->fChain->GetEntries()<<std::endl;
+    if(entry%1000==0) std::cout<<entry<<"/"<<m_data->splittree->fChain->GetEntries()<<std::endl;
     
     m_data->splittree->GetEntry(entry);
     

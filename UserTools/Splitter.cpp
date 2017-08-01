@@ -10,7 +10,18 @@ bool Splitter::Initialise(std::string configfile, DataModel &data){
 
   m_data= &data;
 
+  std::string outpath, suffix;
+
+  m_variables.Get("OutPath",outpath);
+  m_variables.Get("Suffix",suffix);
+
+  std::stringstream tmp;
+  tmp<<outpath<<m_data->outfile<<suffix;
+  m_data->tmpfile= new TFile(tmp.str().c_str(),"RECREATE","test",9);
+
+  // m_data->tmpfile =new TFile("/tmp/tout.root","RECREATE");
   m_data->splittree=new SplitTree("PMTData");
+  m_data->tmpfile->cd();
   m_data->AddTTree("PMTData",m_data->splittree->fChain);
 
   TriggerNum=0;
@@ -63,7 +74,7 @@ bool Splitter::Initialise(std::string configfile, DataModel &data){
       m_data->splittree->LastSync=m_data->WaterPMTData->LastSync;
       m_data->splittree->SequenceID=m_data->WaterPMTData->SequenceID;
       m_data->splittree->StartTimeSec=m_data->WaterPMTData->StartTimeSec;
-      m_data->splittree->StartTimeNSec=m_data->WaterPMTData->StartTimeSec;
+      m_data->splittree->StartTimeNSec=m_data->WaterPMTData->StartTimeNSec;
       m_data->splittree->StartCount=m_data->WaterPMTData->StartCount;
       m_data->splittree->TriggerNumber=m_data->WaterPMTData->TriggerNumber;
       m_data->splittree->CardID=m_data->WaterPMTData->CardID;
@@ -120,6 +131,7 @@ bool Splitter::Execute(){
 
 
 bool Splitter::Finalise(){
+
   
   return true;
 }

@@ -22,6 +22,7 @@ public :
    TTree          *fChain;   //!pointer to the analyzed TTree or TChain
    TTree          *uncaltree;   
    Int_t           fCurrent; //!current Tree number in a TChain
+   TFile          *file;
 
    // Declaration of leaf types
    ULong64_t       LastSync;
@@ -115,10 +116,13 @@ SplitTree::SplitTree(std::string name){
   //b_PMTx=fChain->Branch("PMTx", &PMTx, "PMTx/I");                                                                                                                                                                     //b_PMTx->SetCompressionLevel(4);                                                                                                                                                                           
   //b_PMTy=fChain->Branch("PMTy", &PMTy, "PMTy/I");                                                                                                                                                                     //b_PMTy->SetCompressionLevel(4);                                                                                                                                                                           
   //b_PMTz=fChain->Branch("PMTz", &PMTz, "PMTz/I");                                                                                                                                                                     //b_PMTz->SetCompressionLevel(4);                                                                                                                                                                           
-  //    b_Data=fChain->Branch("Data", Data, "Data[BufferSize]/F");                                                                                                                                                      //b_Data->SetCompressionLevel(4);                                                                  
+  //    b_Data=fChain->Branch("Data", Data, "Data[BufferSize]/F");                                                                                                                                                      //b_Data->SetCompressionLevel(4);
+  file = new TFile("/tmp/tout.root","RECREATE");                       
   b_UnCalData=uncaltree->Branch("UnCalData", UnCalData, "UnCalData[40000]/s");                                                                                                        
   //  b_UnCalData=uncaltree->Branch("UnCalData", UnCalData, "UnCalData[40000]/s");
   b_UnCalData->SetCompressionLevel(4);
+  b_UnCalData->SetFile(file);
+
 }
 
 
@@ -140,6 +144,7 @@ SplitTree::SplitTree(TTree *tree) : fChain(0)
 
 SplitTree::~SplitTree()
 {
+  file->Close();
    if (!fChain) return;
    delete fChain->GetCurrentFile();
 }

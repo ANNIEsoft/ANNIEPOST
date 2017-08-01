@@ -20,7 +20,7 @@ class Splitter: public Tool {
  private:
 
   long TriggerNum;
-
+  
 
 };
 
