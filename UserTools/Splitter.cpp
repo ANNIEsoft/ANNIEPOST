@@ -37,7 +37,7 @@ bool Splitter::Initialise(std::string configfile, DataModel &data){
           
     if(*(m_data->RunInformationData->InfoTitle)=="TriggerVariables"){
       
-      triggerinfo.JsonPaser(*(m_data->RunInformationData->InfoMessage));
+      triggerinfo.JsonParser(*(m_data->RunInformationData->InfoMessage));
     
     }
   }

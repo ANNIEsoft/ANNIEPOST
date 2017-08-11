@@ -27,7 +27,7 @@ bool Calibrate::Initialise(std::string configfile, DataModel &data){
 
 bool Calibrate::Execute(){
 
-  TH1I tmp("test","test",1000,0,999);
+  TH1I tmp("test","test",10000,0,9999);
 
   for(int i=0; i<m_data->splittree->BufferSize; i++){
     tmp.Fill(m_data->splittree->UnCalData[i]);
